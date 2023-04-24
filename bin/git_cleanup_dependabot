@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Fetch updates from the remote and prune deleted branches
+git fetch -p
+
+# List all local branches that have been deleted on the remote
+branches_to_delete=$(git branch -vv | grep ': gone]' | awk '{print $1}')
+
+# Loop through the branches and prompt for deletion
+for branch in $branches_to_delete; do
+  read -p "Delete local branch '$branch'? [y/N] " delete
+  if [[ $delete =~ ^[yY]$ ]]; then
+    git branch -D $branch
+    echo "Deleted branch '$branch'"
+  fi
+done
