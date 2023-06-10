@@ -36,17 +36,28 @@ alias ssh-tools='ssh -i ~/.ssh/rumandcode-canada ubuntu@tools.rumandcode.io'
 
 alias cdrc='cd ~/Stuff/rum-and-code'
 
+alias cdpp='cd ~/Stuff/Goojaji/grammar_game'
+
 alias spbstart="doppler run --preserve-env --command './start.local.sh'"
 alias custart="doppler run --preserve-env --command './start.local.sh'"
 alias spbc="doppler run --preserve-env --command 'bin/rails c'"
 
 eval "$(direnv hook zsh)"
-export PATH="$(pyenv root)/shims:${PATH}"
+# export PATH="$(pyenv root)/shims:${PATH}"
 export PATH="${HOME}/bash_config/bin:${PATH}"
+export PATH="/opt/homebrew/bin:${PATH}"
+
+export GPG_TTY=$(tty)
+
 # export KERL_CONFIGURE_OPTIONS="--disable-debug --disable-silent-rules --enable-dynamic-ssl-lib --enable-hipe --enable-shared-zlib --enable-smp-support --enable-threads --enable-wx --with-ssl=/opt/homebrew/opt/openssl@1.1 --without-javac --enable-darwin-64bit --enable-kernel-poll --with-dynamic-trace=dtrace"
 
-function run_yanky() {
-  pushd "$HOME/Stuff/rum-and-code/yanky" >/dev/null
-  ./yanky
-  popd >/dev/null
-}
+export YANKY_PATH="${HOME}/Stuff/rum-and-code/yanky"
+export PATH="${YANKY_PATH}:${PATH}"
+
+export GOOGLE_APPLICATION_CREDENTIALS="${HOME}/Stuff/rum-and-code/interpreto/gcloud_credentials.json"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/greg/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/greg/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/greg/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/greg/google-cloud-sdk/completion.zsh.inc'; fi
