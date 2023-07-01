@@ -36,7 +36,7 @@ alias ssh-tools='ssh -i ~/.ssh/rumandcode-canada ubuntu@tools.rumandcode.io'
 
 alias cdrc='cd ~/Stuff/rum-and-code'
 
-alias cdpp='cd ~/Stuff/Goojaji/grammar_game'
+alias cdpp='cd ~/Stuff/Goojaji/BetterReaders'
 
 alias spbstart="doppler run --preserve-env --command './start.local.sh'"
 alias custart="doppler run --preserve-env --command './start.local.sh'"
